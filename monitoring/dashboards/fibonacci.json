@@ -1,0 +1,61 @@
+{
+  "title": "Fibonacci Metrics Dashboard",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Average Fibonacci Calculation Duration (ns)",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "rate(fibonacci_calculation_duration_nanoseconds_sum[5m]) / rate(fibonacci_calculation_duration_nanoseconds_count[5m])",
+          "legendFormat": "Average Calculation Duration"
+        }
+      ],
+      "lines": true,
+      "fill": 1
+    },
+    {
+      "type": "graph",
+      "title": "Average Fibonacci Stream Calculation Duration (ns)",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "rate(fibonacci_stream_calculation_duration_nanoseconds_sum[5m]) / rate(fibonacci_stream_calculation_duration_nanoseconds_count[5m])",
+          "legendFormat": "Average Stream Calculation Duration"
+        }
+      ],
+      "lines": true,
+      "fill": 1
+    },
+    {
+      "type": "stat",
+      "title": "Total Fibonacci Calculations",
+      "targets": [
+        {
+          "expr": "fibonacci_calculations_total",
+          "legendFormat": "n={{n}}"
+        }
+      ],
+      "datasource": "Prometheus"
+    },
+    {
+      "type": "stat",
+      "title": "Total Fibonacci Stream Calculations",
+      "targets": [
+        {
+          "expr": "fibonacci_stream_calculations_total",
+          "legendFormat": "n={{n}}, chunk_size={{chunk_size}}"
+        }
+      ],
+      "datasource": "Prometheus"
+    }
+
+  ],
+  "schemaVersion": 36,
+  "version": 1,
+  "overwrite": true
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "fibonacci-service/api;api";
+
+service FibonacciService {
+  rpc FibonacciStream(FibonacciStreamRequest) returns (stream FibonacciChunk);
+  rpc Fibonacci(FibonacciRequest)returns (FibonacciResponse);
+
+}
+
+message FibonacciRequest {
+  int32 n = 1;
+}
+
+message FibonacciResponse {
+  repeated string values = 1;
+}
+
+message FibonacciStreamRequest {
+  int32 n = 1;
+  int32 chunk_size = 2;
+}
+
+message FibonacciChunk {
+  int32 index = 1;
+  repeated string values = 2;
+}

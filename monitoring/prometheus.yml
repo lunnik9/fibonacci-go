@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'app'
+    static_configs:
+        # Prometheus does not support env variables out of the box, so I hardcoded it here.
+        # I think it's a plausible assumption, because metrics here only for demo purposes.
+        # In real service, I wouldn't store metrics in one repo w/ the code.
+      - targets: ['app:8080']
