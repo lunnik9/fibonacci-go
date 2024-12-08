@@ -87,8 +87,6 @@ ShutdownLoop:
 					go func() {
 						grpcServer.GracefulStop()
 
-						time.Sleep(20 * time.Second)
-
 						cancel()
 					}()
 				} else {
