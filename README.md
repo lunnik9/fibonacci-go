@@ -15,7 +15,7 @@ gRPC was chosen to enable efficient streaming for heavy workloads.
     - **Chunked Sequence**: Streams results incrementally for large inputs.
 - **gRPC APIs**: Efficient performance with real-time streaming.
 - **Metrics**: Prometheus integration for monitoring calculation time and frequency.
-- **Graceful Shutdown**: Supports soft, hard, and forced shutdown.
+- **Graceful Shutdown**: Supports soft, and hard shutdown.
 - **Dockerized**: Deploy easily with Docker Compose, Grafana, and Prometheus.
 
 
