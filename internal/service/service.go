@@ -82,7 +82,6 @@ func getFibonacci(ctx context.Context, n int) ([]string, error) {
 			return nil, ctx.Err()
 		default:
 			seq[i] = addStrings(seq[i-1], seq[i-2])
-
 		}
 	}
 

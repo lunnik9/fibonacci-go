@@ -121,6 +121,8 @@ func MergeContexts(c1, c2 context.Context) (context.Context, func()) {
 			cancel()
 		case <-c2.Done():
 			cancel()
+		case <-mergedCtx.Done():
+			return
 		}
 	}()
 
